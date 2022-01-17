@@ -2,10 +2,10 @@
 
 ## Setup
 
-### Install requirements
+### build the containers
 
 ```bash
-pip install -r requirements.txt
+docker-compose build
 ```
 ### run the server
 
@@ -17,5 +17,5 @@ docker-compose up
 ### Running tests
 
 ```bash
-piccolo tester run
+docker-compose run web sh -c "piccolo tester run"
 ```
