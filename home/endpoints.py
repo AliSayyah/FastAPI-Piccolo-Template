@@ -16,6 +16,8 @@ class HomeEndpoint(HTTPEndpoint):
     async def get(self, request):
         template = ENVIRONMENT.get_template("home.html.jinja")
 
-        content = template.render(title="Piccolo + ASGI",)
+        content = template.render(
+            title="Piccolo + ASGI",
+        )
 
         return HTMLResponse(content)

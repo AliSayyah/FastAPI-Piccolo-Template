@@ -50,7 +50,9 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
 
 @accounts_router.post("/login/", response_model=Token, tags=["Auth"])
-async def login_user(form_data: OAuth2PasswordRequestForm = Depends(),):
+async def login_user(
+    form_data: OAuth2PasswordRequestForm = Depends(),
+):
     user = await BaseUser.login(
         username=form_data.username, password=form_data.password
     )
