@@ -1,10 +1,10 @@
 version: "3.8"
 
 volumes:
-  psql_ar_data:
+  psql_data:
 
 services:
-  ar-web:
+  web:
     build:
       dockerfile: .build/Dockerfile
       context: .
@@ -15,10 +15,10 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - ar-db
+      - db
     command: bash -c 'while !</dev/tcp/ar-db/5432; do sleep 1; done; uvicorn app:app --host 0.0.0.0 --reload'
 
-  ar-db:
+  db:
     restart: unless-stopped
     image: postgres:14-alpine
     env_file:
@@ -33,4 +33,4 @@ services:
     volumes:
       - psql_ar_data:/var/lib/postgresql/data:z
     ports:
-      - "5433:5432"
+      - "5432:5432"
