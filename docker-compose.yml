@@ -31,6 +31,6 @@ services:
       postgres -c listen_addresses='*'
 
     volumes:
-      - psql_ar_data:/var/lib/postgresql/data:z
+      - psql_data:/var/lib/postgresql/data:z
     ports:
       - "5432:5432"
