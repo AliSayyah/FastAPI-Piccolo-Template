@@ -11,5 +11,5 @@ SECRET_KEY = config("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 ORIGINS = [
-    "http://localhost:8080",
+    "http://localhost:8000",
 ]
