@@ -9,7 +9,7 @@ click==8.0.3
 colorama==0.4.4
 docstring-parser==0.12
 fastapi==0.72.0
-h11==0.12.0
+h11==0.13.0
 h2==4.1.0
 hpack==4.0.0
 hypercorn==0.13.2
