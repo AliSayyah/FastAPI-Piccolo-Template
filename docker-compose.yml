@@ -9,14 +9,14 @@ services:
       dockerfile: .build/Dockerfile
       context: .
     restart: unless-stopped
-    image: ali_ar:dev
+    image: fastapi-piccolo:dev
     volumes:
       - ./:/opt/app
     ports:
       - "8000:8000"
     depends_on:
       - db
-    command: bash -c 'while !</dev/tcp/ar-db/5432; do sleep 1; done; uvicorn app:app --host 0.0.0.0 --reload'
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python main.py'
 
   db:
     restart: unless-stopped
