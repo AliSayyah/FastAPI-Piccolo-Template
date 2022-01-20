@@ -1,6 +1,11 @@
-# Piccolo-FastAPI project template with authentication
-- Integrated with Piccolo ecosystem (orm, admin panel and api).
-- Authentication with OAuth2 and JWT.
+# Piccolo-FastAPI project template
+- Full Docker integration 
+- Docker Compose integration and optimization for local development.
+- JWT token authentication.
+- Secure password hashing by default.
+- Piccolo Admin frontend 
+- Piccolo async ORM
+- simple CI/CD
 
 
 See each project's documentation for more information.
@@ -13,7 +18,7 @@ See each project's documentation for more information.
 ```bash
 docker-compose build
 ```
-### run the server
+### run the server for local development
 
 ```bash
 docker-compose up
@@ -28,6 +33,10 @@ docker-compose run web sh -c "piccolo tester run"
 
 
 ## todo:
-  - [ ] add load balancer
-  - [ ] add caching system
-  - [ ] optimization for production
+  - [ ] add load balancer (Traefik)
+  - [ ] add caching mechanism
+  - [ ] add celery and flower for monitoring jobs
+  - [ ] add pgadmin
+  - [ ] full CI/CD actions
+  - [ ] optimization for production (Gunicorn integration)
+  - [ ] Docker swarm mode integration + kubernetes 
