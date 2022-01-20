@@ -38,6 +38,6 @@ docker-compose run web sh -c "piccolo tester run"
   - [ ] add celery and flower for monitoring jobs
   - [ ] add pgadmin
   - [ ] full CI/CD actions
-  - [ ] optimization for production (Gunicorn integration)
+  - [ ] optimization for production
   - [ ] Docker swarm mode integration + kubernetes 
   - [ ] CookieCutter
