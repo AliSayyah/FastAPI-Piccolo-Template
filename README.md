@@ -1,4 +1,4 @@
-# Piccolo-FastAPI project template
+# FastAPI-Piccolo project template
 - Full Docker integration 
 - Docker Compose integration and optimization for local development.
 - JWT token authentication.
