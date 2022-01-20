@@ -40,9 +40,9 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         raise credentials_exception
     user = (
         await BaseUser.select()
-            .where(BaseUser.username == token_data.username)
-            .first()
-            .run()
+        .where(BaseUser.username == token_data.username)
+        .first()
+        .run()
     )
     if user is None:
         raise credentials_exception
@@ -51,7 +51,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
 @accounts_router.post("/login/", response_model=Token, tags=["Auth"])
 async def login_user(
-        form_data: OAuth2PasswordRequestForm = Depends(),
+    form_data: OAuth2PasswordRequestForm = Depends(),
 ):
     user = await BaseUser.login(
         username=form_data.username, password=form_data.password
@@ -77,10 +77,8 @@ async def login_user(
 async def register_user(user: UserModelIn):
     user = BaseUser(**user.__dict__)
     if (
-            await BaseUser.exists().where(BaseUser.email == str(user.email)).run()
-            or await BaseUser.exists()
-            .where(BaseUser.username == str(user.username))
-            .run()
+        await BaseUser.exists().where(BaseUser.email == str(user.email)).run()
+        or await BaseUser.exists().where(BaseUser.username == str(user.username)).run()
     ):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
