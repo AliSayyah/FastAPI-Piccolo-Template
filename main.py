@@ -1,5 +1,10 @@
 if __name__ == "__main__":
-
     import uvicorn
+    from settings import RELOAD
 
-    uvicorn.run("app:app", reload=True, host="0.0.0.0")
+    kwargs = {
+        "reload": RELOAD,
+        "host": "0.0.0.0"
+    }
+
+    uvicorn.run("app:app", **kwargs)
