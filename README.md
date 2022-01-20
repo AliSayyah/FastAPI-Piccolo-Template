@@ -40,3 +40,4 @@ docker-compose run web sh -c "piccolo tester run"
   - [ ] full CI/CD actions
   - [ ] optimization for production (Gunicorn integration)
   - [ ] Docker swarm mode integration + kubernetes 
+  - [ ] CookieCutter
