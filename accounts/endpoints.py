@@ -6,7 +6,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from piccolo.apps.user.tables import BaseUser
 
-from accounts.tables import TokenData, Token
+from accounts.tables import TokenData, Token, UserModelOut, UserModelIn
 from settings import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="accounts/login")
@@ -40,9 +40,9 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         raise credentials_exception
     user = (
         await BaseUser.select()
-        .where(BaseUser.username == token_data.username)
-        .first()
-        .run()
+            .where(BaseUser.username == token_data.username)
+            .first()
+            .run()
     )
     if user is None:
         raise credentials_exception
@@ -51,7 +51,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
 
 @accounts_router.post("/login/", response_model=Token, tags=["Auth"])
 async def login_user(
-    form_data: OAuth2PasswordRequestForm = Depends(),
+        form_data: OAuth2PasswordRequestForm = Depends(),
 ):
     user = await BaseUser.login(
         username=form_data.username, password=form_data.password
@@ -71,3 +71,20 @@ async def login_user(
         "access_token": access_token,
         "token_type": "bearer",
     }
+
+
+@accounts_router.post("/register/", response_model=UserModelOut, tags=["Auth"])
+async def register_user(user: UserModelIn):
+    user = BaseUser(**user.__dict__)
+    if (
+            await BaseUser.exists().where(BaseUser.email == str(user.email)).run()
+            or await BaseUser.exists()
+            .where(BaseUser.username == str(user.username))
+            .run()
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="User with that email or username already exists.",
+        )
+    await user.save().run()
+    return UserModelOut(**user.__dict__)
