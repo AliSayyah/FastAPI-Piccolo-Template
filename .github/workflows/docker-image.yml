@@ -15,6 +15,29 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file .build/Dockerfile --tag web-test:$(date +%s)
-    - name: run the tests
+      run: docker build . --file .build/Dockerfile --tag fastapi-piccolo:dev
+    - name: create .env file
+      env:
+         DB_USER: postgres
+         DB_PASS: postgres
+         DB_NAME: test
+         DB_HOST: db
+         DB_PORT: 5432
+         DB_TEST_USER: postgres
+         DB_TEST_PASSWORD: postgres
+         DB_TEST_NAME: test
+      run: |
+        touch .env
+        echo DB_USER="postgres" >> .env
+        echo DB_PASS="postgres" >> .env
+        echo DB_NAME="test" >> .env
+        echo DB_HOST="db" >> .env
+        echo DB_PORT=5432 >> .env
+        echo DB_TEST_USER="postgres" >> .env
+        echo DB_TEST_PASSWORD="postgres" >> .env
+        echo DB_TEST_NAME="test" >> .env
+      shell: bash
+
+
+    - name: Run the tests
       run: docker-compose run web sh -c "piccolo tester run"
