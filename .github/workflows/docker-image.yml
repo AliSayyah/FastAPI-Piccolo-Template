@@ -41,16 +41,12 @@ jobs:
              echo DB_TEST_NAME=piccolo >> .env
              echo DB_TEST_USER=postgres >> .env
              echo DB_TEST_PASSWORD=postgres >> .env
-             echo DB_TEST_HOST=localhost >> .env
+             echo DB_TEST_HOST=postgres >> .env
              echo DB_TEST_PORT=5432 >> .env
              
     - name: Run tests
       run: docker run fastapi-piccolo:dev piccolo tester run
-      env:
-        PG_HOST: localhost
-        PG_DATABASE: piccolo
-        PG_PASSWORD: postgres
-      
+    
     - name: Upload coverage
       uses: codecov/codecov-action@v1
 
