@@ -2,6 +2,7 @@ version: "3.8"
 
 volumes:
   psql_data:
+  pgadmin_data:
 
 services:
   web:
@@ -33,4 +34,20 @@ services:
     volumes:
       - psql_data:/var/lib/postgresql/data:z
     ports:
-      - "5432:5432"
+      - "5433:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+
+
+    depends_on:
+      - db
+
