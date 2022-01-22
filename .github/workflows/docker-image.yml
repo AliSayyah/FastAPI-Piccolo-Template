@@ -39,15 +39,15 @@ jobs:
              
     - name: Build the Docker image
       run: docker build . --file .build/Dockerfile --tag fastapi-piccolo:dev
-    - name: Setup postgres
-      run: |
-            export PGPASSWORD=postgres
-            psql -h localhost -c 'CREATE DATABASE test;' -U postgres
+#     - name: Setup postgres
+#       run: |
+#             export PGPASSWORD=postgres
+#             psql -h localhost -c 'CREATE DATABASE test;' -U postgres
             
-    - name: Run tests
-      run: docker run fastapi-piccolo:dev piccolo tester run
+#     - name: Run tests
+#       run: docker run fastapi-piccolo:dev piccolo tester run
     
-    - name: Upload coverage
-      uses: codecov/codecov-action@v1
+#     - name: Upload coverage
+#       uses: codecov/codecov-action@v1
 
              
