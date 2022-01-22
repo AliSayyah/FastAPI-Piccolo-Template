@@ -37,7 +37,7 @@ docker-compose run web sh -c "piccolo tester run"
   - [ ] add load balancer (Traefik)
   - [ ] add caching mechanism
   - [ ] add celery and flower for monitoring jobs
-  - [ ] add pgadmin
+  - [X] add pgadmin
   - [ ] full CI/CD actions
   - [ ] Gunicorn integration for single server mode
   - [ ] Docker swarm integration + kubernetes for cluster mode
