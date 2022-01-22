@@ -11,18 +11,46 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    services:
+        postgres:
+              image: postgres:14
+              env:
+                    POSTGRES_PASSWORD: postgres
+              options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
+              ports:
+                    - 5432:5432
 
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file .build/Dockerfile --tag fastapi-piccolo:dev
-#     - name: create .env file
-#       run: |
-#             touch .env
-#             echo DB_USER=postgres >> .env
-#             echo DB_PASSWORD=postgres >> .env
-#             echo DB_NAME=test >> .env
+    - name: Setup postgres
+      run: |
+            export PGPASSWORD=postgres
+            psql -h localhost -c 'CREATE DATABASE piccolo;' -U postgres
+            psql -h localhost -c "CREATE USER piccolo PASSWORD 'piccolo';" -U postgres
+            psql -h localhost -c "GRANT ALL PRIVILEGES ON DATABASE piccolo TO piccolo;" -U postgres
+            psql -h localhost -c "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";" -d piccolo -U postgres
+    - name: Setup env
+      run: |
+             touch .env
+             echo DB_USER=postgres >> .env
+             echo DB_PASSWORD=piccolo >> .env
+             echo DB_NAME=piccolo >> .env
+             echo DB_TEST_HOST=localhost >> .env
+             echo DB_TEST_PORT=5432 >> .env
+             
+    - name: Run docker container
+      run: docker run -it fastapi-piccolo:dev
+      
+    - name: Run unit tests
+      run: piccolo tester run
+      
+    - name: Upload coverage
+      uses: codecov/codecov-action@v1
 
-#       shell: bash
-#     - name: Run the tests
-#       run: docker-compose run web sh -c "piccolo tester run"
+             
