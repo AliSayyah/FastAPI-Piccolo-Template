@@ -41,7 +41,7 @@ jobs:
              echo DB_USER=postgres >> .env
              echo DB_PASSWORD=piccolo >> .env
              echo DB_NAME=piccolo >> .env
-             echo DB_TEST_HOST=localhost >> .env
+             echo DB_TEST_HOST=127.0.0.1 >> .env
              echo DB_TEST_PORT=5432 >> .env
              
     - name: Run tests
