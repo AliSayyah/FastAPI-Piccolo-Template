@@ -30,11 +30,11 @@ jobs:
       run: |
              rm sample.env
              touch sample.env
-             echo DB_HOST=postgres >> sample.env
+             echo DB_HOST=localhost >> sample.env
              echo DB_TEST_NAME=test >> sample.env
              echo DB_TEST_USER=postgres >> sample.env
              echo DB_TEST_PASSWORD=postgres >> sample.env
-             echo DB_TEST_HOST=postgres >> sample.env
+             echo DB_TEST_HOST=localhost >> sample.env
              echo DB_TEST_PORT=5432 >> sample.env
              
     - name: Build the Docker image
