@@ -41,7 +41,7 @@ jobs:
              echo DB_TEST_PASSWORD=postgres >> .env
              echo DB_TEST_HOST=postgres >> .env
              echo DB_TEST_PORT=5432 >> .env
-             ls
+             cat .env
              
     - name: Run tests
       run: docker run fastapi-piccolo:dev piccolo tester run
