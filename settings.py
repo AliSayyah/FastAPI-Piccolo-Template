@@ -3,7 +3,7 @@ from starlette.config import Config
 
 def generate_secret_key():
     import secrets
-       
+
     return secrets.token_urlsafe(32)
 
 
