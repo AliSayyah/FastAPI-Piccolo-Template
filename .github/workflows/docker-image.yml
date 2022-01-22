@@ -44,11 +44,8 @@ jobs:
              echo DB_TEST_HOST=localhost >> .env
              echo DB_TEST_PORT=5432 >> .env
              
-    - name: Run docker container
-      run: docker run -it fastapi-piccolo:dev
-      
-    - name: Run unit tests
-      run: piccolo tester run
+    - name: Run tests
+      run: docker run fastapi-piccolo:dev piccolo tester run
       
     - name: Upload coverage
       uses: codecov/codecov-action@v1
