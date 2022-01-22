@@ -15,5 +15,4 @@ config = {
     "host": DB_TEST_HOST,
     "port": DB_TEST_PORT,
 }
-print(config)
 DB = PostgresEngine(config)

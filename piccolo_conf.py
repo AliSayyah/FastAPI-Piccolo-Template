@@ -10,7 +10,6 @@ config = {
     "host": DB_HOST,
     "port": DB_PORT,
 }
-print(config)
 DB = PostgresEngine(config)
 
 APP_REGISTRY = AppRegistry(
