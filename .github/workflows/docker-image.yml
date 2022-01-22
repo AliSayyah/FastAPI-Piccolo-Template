@@ -26,6 +26,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Setup env
+      run: |
+             rm sample.env
+             touch sample.env
+             echo DB_HOST=test-db >> .env
+             echo DB_TEST_NAME=test >> .env
+             echo DB_TEST_USER=postgres >> .env
+             echo DB_TEST_PASSWORD=postgres >> .env
+             echo DB_TEST_HOST=test-db >> .env
+             echo DB_TEST_PORT=5432 >> .env
+             
     - name: Build the Docker image
       run: docker build . --file .build/Dockerfile --tag fastapi-piccolo:dev
     - name: Setup postgres
@@ -33,17 +44,6 @@ jobs:
             export PGPASSWORD=postgres
             psql -h localhost -c 'CREATE DATABASE test;' -U postgres
             
-    - name: Setup env
-      run: |
-             touch .env
-             echo DB_HOST=test-db >> .env
-             echo DB_TEST_NAME=test >> .env
-             echo DB_TEST_USER=postgres >> .env
-             echo DB_TEST_PASSWORD=postgres >> .env
-             echo DB_TEST_HOST=test-db >> .env
-             echo DB_TEST_PORT=5432 >> .env
-             cat .env
-             
     - name: Run tests
       run: docker run fastapi-piccolo:dev piccolo tester run
     
