@@ -1,10 +1,11 @@
 # FastAPI-Piccolo project template
+- Amazing [FastAPI](https://github.com/tiangolo/fastapi) framework.
 - Full Docker integration 
 - Docker Compose integration and optimization for local development.
 - JWT token authentication.
 - Secure password hashing by default.
-- Piccolo Admin frontend 
-- Piccolo async ORM
+- [Piccolo Admin](https://github.com/piccolo-orm/piccolo_admin) frontend 
+- [Piccolo async ORM](https://github.com/piccolo-orm/piccolo)
 - simple CI/CD
 
 
