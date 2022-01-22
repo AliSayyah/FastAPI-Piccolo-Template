@@ -11,7 +11,7 @@ def generate_secret_key():
 config = Config(".env")
 
 # main database
-DB_NAME = config("DB_NAME", cast=str, default="main")
+DB_NAME = config("DB_NAME", cast=str, default="postgres")
 DB_USER = config("DB_USER", cast=str, default="postgres")
 DB_PASSWORD = config("DB_PASSWORD", cast=str, default="postgres")
 DB_HOST = config("DB_HOST", cast=str, default="db")
