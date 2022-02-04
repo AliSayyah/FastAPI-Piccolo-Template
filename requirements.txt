@@ -38,5 +38,5 @@ targ==0.3.6
 toml==0.10.2
 tomli==1.2.3
 typing_extensions==4.0.1
-uvicorn==0.17.1
+uvicorn==0.17.4
 wsproto==1.0.0
