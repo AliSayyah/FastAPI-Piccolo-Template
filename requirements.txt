@@ -24,7 +24,7 @@ pathspec==0.9.0
 piccolo==0.69.1
 piccolo-admin==0.19.6
 piccolo-api==0.33.1
-platformdirs==2.4.1
+platformdirs==2.5.0
 priority==2.0.0
 pycparser==2.21
 pydantic==1.9.0
