@@ -37,6 +37,6 @@ starlette==0.17.1
 targ==0.3.6
 toml==0.10.2
 tomli==2.0.1
-typing_extensions==4.0.1
+typing_extensions==4.1.0
 uvicorn==0.17.4
 wsproto==1.0.0
