@@ -39,4 +39,4 @@ toml==0.10.2
 tomli==2.0.1
 typing_extensions==4.1.1
 uvicorn==0.17.5
-wsproto==1.0.0
+wsproto==1.1.0
