@@ -33,7 +33,7 @@ python-multipart==0.0.5
 python-jose==3.3.0
 six==1.16.0
 sniffio==1.2.0
-starlette==0.17.1
+starlette==0.19.1
 targ==0.3.6
 toml==0.10.2
 tomli==2.0.1
