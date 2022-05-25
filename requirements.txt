@@ -28,7 +28,7 @@ platformdirs==2.5.1
 priority==2.0.0
 pycparser==2.21
 pydantic==1.9.0
-PyJWT==2.3.0
+PyJWT==2.4.0
 python-multipart==0.0.5
 python-jose==3.3.0
 six==1.16.0
