@@ -22,8 +22,8 @@ mypy-extensions==0.4.3
 passlib==1.7.4
 pathspec==0.9.0
 piccolo==0.72.0
-piccolo-admin==0.19.6
-piccolo-api==0.33.1
+piccolo-admin==0.28.0
+piccolo-api==0.39.0
 platformdirs==2.5.1
 priority==2.0.0
 pycparser==2.21
