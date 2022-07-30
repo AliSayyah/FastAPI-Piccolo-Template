@@ -3,6 +3,7 @@ version: "3.8"
 volumes:
   psql_data:
   pgadmin_data:
+  pdm_data:
 
 services:
   web:
@@ -13,6 +14,7 @@ services:
     image: fastapi-piccolo:dev
     volumes:
       - ./:/opt/app
+      - pdm_data:/root/.local/share/pdm/venvs/app-jNE7dXAC-env:z
     ports:
       - "8000:8000"
     depends_on:

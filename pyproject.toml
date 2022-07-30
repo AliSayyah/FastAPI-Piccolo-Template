@@ -1,0 +1,29 @@
+[project]
+name = "FastAPi-Piccolo-Template"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "ali", email = "ali.sayyah2@gmail.com" },
+]
+dependencies = [
+    "asyncpg>=0.26.0",
+    "black>=22.6.0",
+    "fastapi>=0.79.0",
+    "piccolo>=0.82.0",
+    "piccolo-admin>=0.28.0",
+    "piccolo-api>=0.40.0",
+    "uvicorn>=0.18.2",
+]
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+
+[tool]
+[tool.pdm]
+
+[tool.pdm.scripts]
+test = "piccolo tester run"

@@ -29,7 +29,7 @@ docker-compose up
 ### Running tests
 
 ```bash
-docker-compose run web sh -c "piccolo tester run"
+docker-compose run web sh -c "pdm run test"
 ```
 
 
