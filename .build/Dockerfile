@@ -1,4 +1,4 @@
-FROM python:3.12-slim-buster
+FROM python:3.12.2-slim-bullseye
 WORKDIR /opt/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
