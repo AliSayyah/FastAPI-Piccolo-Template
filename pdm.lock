@@ -409,7 +409,7 @@ files = [
 
 [[package]]
 name = "piccolo"
-version = "1.3.2"
+version = "1.4.0"
 requires_python = ">=3.8.0"
 summary = "A fast, user friendly ORM and query builder which supports asyncio."
 dependencies = [
@@ -422,13 +422,13 @@ dependencies = [
     "typing-extensions>=4.3.0",
 ]
 files = [
-    {file = "piccolo-1.3.2-py3-none-any.whl", hash = "sha256:fefb3e5fa6c8ca5a33e66e09d8d60d5648d92daab070965628bc459db0fe6649"},
-    {file = "piccolo-1.3.2.tar.gz", hash = "sha256:37cf1a9686a5da7fbc40db135f86e0046bf6a6d5a76433c9ddfd3c0b60b4c92f"},
+    {file = "piccolo-1.4.0-py3-none-any.whl", hash = "sha256:10abe9f3807becdfaa1303c415fb54492b3b4f2a10644180ab2c29015d780020"},
+    {file = "piccolo-1.4.0.tar.gz", hash = "sha256:17c35a34c2c36b731e5b7d0bf9f4eda087d3db64a3c78cd62fdf229a4f4f096e"},
 ]
 
 [[package]]
 name = "piccolo-admin"
-version = "1.2.2"
+version = "1.3.0"
 requires_python = ">=3.8.0"
 summary = "A powerful and modern admin interface / CMS, powered by Piccolo and ASGI."
 dependencies = [
@@ -441,8 +441,8 @@ dependencies = [
     "uvicorn",
 ]
 files = [
-    {file = "piccolo_admin-1.2.2-py3-none-any.whl", hash = "sha256:9c10f68d90329d89ede8ed7dafb62bcd7efabf55b8188d3db3231279768864f2"},
-    {file = "piccolo_admin-1.2.2.tar.gz", hash = "sha256:73a533699cc220343537180969681686391bd8c63c0eef72bdf63634509d8786"},
+    {file = "piccolo_admin-1.3.0-py3-none-any.whl", hash = "sha256:a789d1531a6c3f55b94ac69eccc71ed3397756c0f948770cc8504d6173326eaf"},
+    {file = "piccolo_admin-1.3.0.tar.gz", hash = "sha256:17670c0d33a8a59657753c93df7eda9266ac434fe6b462d4f4ae2b6f15fa42ef"},
 ]
 
 [[package]]
@@ -466,17 +466,17 @@ files = [
 
 [[package]]
 name = "piccolo"
-version = "1.3.2"
+version = "1.4.0"
 extras = ["postgres"]
 requires_python = ">=3.8.0"
 summary = "A fast, user friendly ORM and query builder which supports asyncio."
 dependencies = [
     "asyncpg>=0.21.0",
-    "piccolo==1.3.2",
+    "piccolo==1.4.0",
 ]
 files = [
-    {file = "piccolo-1.3.2-py3-none-any.whl", hash = "sha256:fefb3e5fa6c8ca5a33e66e09d8d60d5648d92daab070965628bc459db0fe6649"},
-    {file = "piccolo-1.3.2.tar.gz", hash = "sha256:37cf1a9686a5da7fbc40db135f86e0046bf6a6d5a76433c9ddfd3c0b60b4c92f"},
+    {file = "piccolo-1.4.0-py3-none-any.whl", hash = "sha256:10abe9f3807becdfaa1303c415fb54492b3b4f2a10644180ab2c29015d780020"},
+    {file = "piccolo-1.4.0.tar.gz", hash = "sha256:17c35a34c2c36b731e5b7d0bf9f4eda087d3db64a3c78cd62fdf229a4f4f096e"},
 ]
 
 [[package]]
